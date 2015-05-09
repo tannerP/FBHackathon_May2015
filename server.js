@@ -13,4 +13,4 @@ app.get('*', function(req, res) {
 
 app.listen(8080);
 
-console.log('Magic happens on port 8080')
+console.log('Magic happens on port 8080');
