@@ -17,15 +17,15 @@ angular.module('routerApp', ['routerRoutes'])
     vm.message = 'This is the home page!';
 })
 
-.controller('aboutController', function() {
+.controller('signinController', function() {
     var vm = this;
 
-    vm.message = 'Look! I am an about page.';
+    vm.message = 'Look! I am a sign in page.';
 })
 
 // contact page controller
-.controller('contactController', function() {
+.controller('registrationController', function() {
     var vm = this;
 
-    vm.message = 'Contact us! JK this is just a demo.';
+    vm.message = 'Registration page';
 });

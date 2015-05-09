@@ -13,17 +13,17 @@ angular.module('routerRoutes', ['ngRoute'])
         })
 
         // route for the about page
-        .when('/about', {
-            templateUrl : 'views/pages/about.html',
-            controller  : 'aboutController',
-            controllerAs: 'about'
+        .when('/signin', {
+            templateUrl : 'views/pages/signin.html',
+            controller  : 'signinController',
+            controllerAs: 'signin'
         })
 
         // route for the contact page
-        .when('/contact', {
-            templateUrl : 'views/pages/contact.html',
-            controller  : 'contactController',
-            controllerAs: 'contact'
+        .when('/registration', {
+            templateUrl : 'views/pages/registration.html',
+            controller  : 'registrationController',
+            controllerAs: 'registration'
         });
 
     $locationProvider.html5Mode(true);
