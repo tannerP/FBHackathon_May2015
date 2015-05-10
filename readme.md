@@ -1,4 +1,4 @@
-#How to run this website on your computer
+#Running this website on your computer
 If you don't have brew, [click here](http://brew.sh).
 ##Mac
 
