@@ -7,7 +7,7 @@ If you don't have brew, [click here](http://brew.sh).
 brew install npm
 ```
 
-###Install node packages
+###Install Node packages
 ```
 cd path/to/project
 npm install
