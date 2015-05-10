@@ -12,6 +12,10 @@ brew install npm
 cd path/to/project
 npm install
 ```
+###Install nodemon globally
+```
+npm install -g nodemon
+```
 
 ###Start server
 ```
