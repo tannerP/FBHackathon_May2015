@@ -1,7 +1,7 @@
 #Running this website on your computer
-If you don't have brew, [click here](http://brew.sh).
-##Mac
 
+##Mac
+If you don't have brew, [click here](http://brew.sh).
 ###Install Node
 ```
 brew install npm
