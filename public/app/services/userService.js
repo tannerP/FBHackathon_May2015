@@ -1,6 +1,6 @@
 //gets data using $http
 //Data gets passed into controller directory to get displayed
-angular.module('userService',[])
+angular.module('userService', [])
 
 .factory('User',function($http){
 	//create the object
@@ -18,7 +18,7 @@ angular.module('userService',[])
 
 	//create a user
 	userFactory.create = function(userData)	{
-		return $http.post('/api/users/', userData)
+		return $http.post('/api/users/', userData);
 	};
 
 	//update a user
@@ -28,7 +28,7 @@ angular.module('userService',[])
 
 	//delete a user
 	userFactory.delete = function(id)	{
-		return $http.delete('/api/users' + id);
+		return $http.delete('/api/users/' + id);
 	};
 
 	//return our entire userFactory object
