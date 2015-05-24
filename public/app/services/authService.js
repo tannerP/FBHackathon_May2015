@@ -12,16 +12,16 @@ angular.module('authService', [])
 	var authFactory = {};
 
 	//log a user in 
-	authFactory.login = function(username, passsword)	{
+	authFactory.login = function(username, password)	{
 
-	//	 return the promise object and its data
+	// return the promise object and its data
 	return $http.post('/api/authenticate',{
 		username: username, 
 		password: password
 	})
 		.success( function(data)	{
 			AuthToken.setToken(data.token);
-			return data;
+		return data;
 		});
 	};
 
@@ -85,7 +85,7 @@ angular.module('authService', [])
 //=============================================================================
 .factory('AuthInterceptor', function($q,$location,AuthToken)	{
 
-	var interceptor = {};
+	var interceptorFactory = {};
 
 	//	 this will hapen on all HTTP requests
 	interceptorFactory.request = function(config)	{
