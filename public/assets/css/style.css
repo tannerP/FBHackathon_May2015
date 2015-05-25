@@ -1,5 +1,6 @@
 main 	{
 	padding-top: 30px;
+	background: red;
 }
 
 /* HEADER ================================================= */
@@ -28,4 +29,8 @@ header .navbar	{
 @-moz-keyframes spin{
 	from {	-moz-transform:rotate(0deg);}
 	to {	-moz-transform:rotate(0deg);	}
+}
+
+.nav navbar-nav navbar-right{
+	background: RED;
 }
