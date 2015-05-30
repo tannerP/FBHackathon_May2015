@@ -24,11 +24,9 @@ angular.module('mainCtrl', [])
 	//fucntion to handle login form
 	vm.doLogin = function()	{
 		//processing Icon
-		vm.doLogin = function()	{
 			vm.processing = true;
-		}
 
-		//error handling
+		// clear error handling
 		vm.error = '';
 
 		// call the Auth.login() function
@@ -37,12 +35,12 @@ angular.module('mainCtrl', [])
 			vm.processing = false;
 
 		//if a user successfully logs in, redirect to users page
-		if( data.process)
+		if( data.success)
 			$location.path('/users');
 		else
 			vm.error = data.message;
 		});
-	};
+}
 
 	//function to handle loggin out
 	vm.doLogout = function()	
