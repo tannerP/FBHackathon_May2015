@@ -33,6 +33,9 @@
 		<td class = "col-sm-2">
 			<a ng-href = "/users/{{person._id}}" class = "btn btn-danger">Edit</a>
 		</td>
+		<a href = "#"
+			ng-click = "user.deleteUser(person._id)"
+			class = "btn btn-primary"> Delete</a>
 	</tr>
 </tbody>	
 </table>

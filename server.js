@@ -17,8 +17,7 @@ var path = require('path');
 var port = config.port; //PORT
 
 
-//secret
-//---------------
+//secret----------------------------------------------
 var superSecret = config.secret;
 
 // APP CONFIGURATION----------------------------------
