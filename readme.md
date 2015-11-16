@@ -1,3 +1,5 @@
+This app was created from the MEAN Machine Tutorial, by Scotch-IO
+
 #Running this website on your computer
 
 ##Mac

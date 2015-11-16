@@ -14,7 +14,7 @@ var morgan = require('morgan'); //use to see requests
 var mongoose = require('mongoose'); //for working with database
 var config = require('./config'); //get config file
 var path = require('path');
-var port = config.port; //PORT
+//var port = config.port; //PORT
 
 
 //secret----------------------------------------------
@@ -37,7 +37,7 @@ app.use(function(req,res,next){
 app.use(morgan('dev'));
 
 // connect to our databse(hosted on modules.io)
-mongoose.connect(config.database);
+//mongoose.connect(config.database);
 
 //set static files location
 //used for requests that frontend will make
