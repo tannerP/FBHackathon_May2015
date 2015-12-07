@@ -17,7 +17,6 @@ angular.module('userCtrl',['userService'])
 			//bind the data to a controller variable
 			//this come from the stuffService
 			vm.users = data;
-			console.log(data);
 		});
 		//function to delete a user
 		vm.deleteUser = function(id)	{
@@ -56,7 +55,7 @@ angular.module('userCtrl',['userService'])
 
 		// use the create function in the userService
 		User.create(vm.userData)
-			.success(function ()	{
+			.success(function (data)	{
 				vm.processing = false;
 
 				//clear the form 

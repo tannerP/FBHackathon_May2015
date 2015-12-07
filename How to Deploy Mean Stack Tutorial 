@@ -1,0 +1,21 @@
++++
+date = "2015-11-01T15:16:52-07:00"
+draft = true
+title = "How to Deploy MEAN Stack with Distelli"
+leftnav = "leftnav-tutorials.html"
++++
+<br>
+## Introduction
+In this tutorial, we will be creating an EC2 instance. 
+
+
+## Prerequisites
+<ul>
+<li>- Have a running EC2 instance (If you don't, this tutorial give you a jump start to create one.)</li>
+- Have a login to, at least, one of the two public repositories.
+
+## Step 1.
+
+
+## Step 2. 
+

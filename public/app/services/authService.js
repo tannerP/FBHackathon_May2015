@@ -20,7 +20,7 @@ angular.module('authService', [])
 		password: password
 	})
 		.success( function(data)	{
-			AuthToken.setToken(data.token);
+			AuthToken.setToken(data); //and User name
 		return data;
 		});
 	};
@@ -42,8 +42,10 @@ angular.module('authService', [])
 
 	//	get the logged in user
 	authFactory.getUser = function()	{
-		if( AuthToken.getToken())
-			return $http.get('/api/me');
+		if( AuthToken.getToken()){
+			return AuthToken.getName();
+			//return $http.get('/api/me');
+			}
 		else
 			return $q.reject({	message: 'User has no token.'});
 	};
@@ -65,13 +67,18 @@ angular.module('authService', [])
 	authTokenFactory.getToken = function()	{
 		return $window.localStorage.getItem('token');
 	};
+		authTokenFactory.getName = function()	{
+		return $window.localStorage.getItem('name');
+	};
 
 	// function to get token or clear token
 	// if a token is passed, set the token
 	// if there is no token, clear it from local storage
-	authTokenFactory.setToken = function (token)	{
-		if(token)
-			$window.localStorage.setItem('token',token);
+	authTokenFactory.setToken = function (data)	{
+		if(data){
+			$window.localStorage.setItem('token',data.token);
+			$window.localStorage.setItem('name',data.name);
+			}
 		else
 			$window.localStorage.removeItem('token');
 	};
@@ -81,7 +88,7 @@ angular.module('authService', [])
 
 
 //=============================================================================
-// aplication configuration to integrate token into requests
+// application configuration to integrate token into requests
 //=============================================================================
 .factory('AuthInterceptor', function($q,$location,AuthToken)	{
 

@@ -1,5 +1,5 @@
 {
-  "name": "facebookhackathon2015",
+  "name": "MEAN Stack Simple",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -48,7 +48,6 @@
     "body-parser": "~1.9.3",
     "express": "~4.10.3",
     "jsonwebtoken": "^5.0.0",
-    "mongoose": "~3.8.19",
     "morgan": "~1.5.0"
   },
   "devDependencies": {

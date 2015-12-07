@@ -17,10 +17,9 @@
 <table class = "table table-bordered table-striped" ng-show = "user.users">
 <thead>
 	<tr>
-		<th>_id</th>
+		<th>ID</th>
 		<th>Name</th>
 		<th>Username</th>
-		<th class= "col-sm-2"></th>
 	</tr>
 </thead>
 
@@ -33,9 +32,9 @@
 		<td class = "col-sm-2">
 			<a ng-href = "/users/{{person._id}}" class = "btn btn-danger">Edit</a>
 		</td>
-		<a href = "#"
+		<td> <a href = "#"
 			ng-click = "user.deleteUser(person._id)"
-			class = "btn btn-primary"> Delete</a>
+			class = "btn btn-primary"> Delete</a></td>
 	</tr>
 </tbody>	
 </table>

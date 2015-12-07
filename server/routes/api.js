@@ -11,8 +11,7 @@ module.exports = function(app,express){
 //get an instance of the express router
 var apiRouter = express.Router();
 
-//route for authenticating users
-//POST- 8080/api/authenticate
+//===============================  /authenticate  =========================
 apiRouter.post('/authenticate',function(req, res){
 	//find the user
 	//select the name, username and password explicitly
@@ -41,11 +40,13 @@ apiRouter.post('/authenticate',function(req, res){
 				var token = jwt.sign({
 					name: user.name,
 					username: user.username
-				}, superSecret, {
-					expiresInMinutes: 1440 //expires in 24 hours
+				}, superSecret , {
+					expiresIn: 86400 //  (24hrs)
+					// expires in 3600 * 24 = c (24 hours)
 				});
 			//return the information including token as JSON
 			res.json({
+				name: user.name,
 				success: true,
 				message: 'Enjoy your token!',
 				token: token
@@ -55,17 +56,41 @@ apiRouter.post('/authenticate',function(req, res){
 	});
 });
 
+//=================================  /register  =============================
+	apiRouter.route('/register')
+	//create a user (accessed at POST http://localhost:8080/api/users)
+	.post(function(req,res) {
+			//create a new instance of the User model
+			var user = new User();
 
+			//set the users information (comes from the request)
+			user.name = req.body.name;
+			user.username = req.body.username;
+			user.password = req.body.password;
 
+			//save the user and check for errors
+			user.save(function(err){
+				if (err){
+					//duplicate entry
+					if(err.code == 11000)
+						return res.json({success: false,
+						 message: 'A user with that\ username already exists.'});
+					else
+						return res.send(err);
+				}
+				res.json({ message:'User created!' });
+			});
+});
 
-//MIDDLEWARE to use for all requests
-apiRouter.use(function(req,res,next){
+//===============================  Token Middleware  =========================
+// For /users request
+// Checks for token
+apiRouter.use("/users",function(req,res,next){
 	//check header or url parameters or post parameters for token
 	var token = req.body.token || req.param('token') ||req.headers['x-access-token'];
 
 	//decode token
 	if(token){
-
 		//verifies secret and checks exp
 		jwt.verify(token,superSecret,function(err,decoded){
 			if(err){
@@ -88,47 +113,21 @@ apiRouter.use(function(req,res,next){
 			message: 'No token provided.'
 		});
 	}
-
-
 });
 
-//on routes that end in /users
-//------------------------------------------------------
-apiRouter.route('/users')
-
-	//create a user (accessed at POST http://localhost:8080/api/users)
-	.post(function(req,res) {
-			//create a new instance of the User model
-			var user = new User();
-
-			//set the users information (comes from the request)
-			user.name = req.body.name;
-			user.username = req.body.username;
-			user.password = req.body.password;
-
-			//save the user and check for errors
-			user.save(function(err){
-				if (err){
-					//duplicate entry
-					if(err.code == 11000)
-						return res.json({success: false, message: 'A user with that\ username already exists.'});
-					else
-						return res.send(err);
-				}
-				res.json({ message:'User created!' });
-			});
-})
+//===================================  /user  ================================
+	apiRouter.route('/users')
 	// get all the users (accessed at GET http://localhost::8080/api/users)
 	.get(function(req, res) {
-			User.find(function(err,users){
+			User.find(function(err,users){ 
+				if(err) res.send(err);	
 				if(err) res.send(err);
-				//return the users
+				//res: return list of users
 					res.json(users);
 					});
 		});
 
-//on routes that end in /users/:user_id
-//------------------------------------------------------
+//===============================  /users/:user_id  ============================
 apiRouter.route('/users/:user_id')
 	//get the user with that id
 	//(accessed at GET http://localhost:8080/api/users/:user_id)

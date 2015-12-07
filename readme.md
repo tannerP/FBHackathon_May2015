@@ -1,9 +1,13 @@
-This app was created from the MEAN Machine Tutorial, by Scotch-IO
+##About
+This codebase is a template for Webapp that need access control. 
+It has 3 features:
+    - Registeer
+    - Edit
+    - Delete
 
-#Running this website on your computer
-
+##To run this application on your computer
 ##Mac
-If you don't have brew, [click here](http://brew.sh).
+If you don't have brew, [click here](http://brew.sh) to download the homebrew.
 ###Install Node
 ```
 brew install npm

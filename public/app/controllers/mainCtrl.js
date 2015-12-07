@@ -12,10 +12,11 @@ angular.module('mainCtrl', [])
 		vm.loggedIn = Auth.isLoggedIn();
 
 		//get user information on route change
-		Auth.getUser().then( 
-			function(data){
+		vm.user = Auth.getUser()
+			/*function(data){
 			vm.user = data;
-		}); 
+			return;
+		}); */
 		//function(response){
 		//	$location.path('/');
 		//});
@@ -45,9 +46,19 @@ angular.module('mainCtrl', [])
 	//function to handle loggin out
 	vm.doLogout = function()	
 	{
-		Auth.Logout();
+		Auth.logout();
 		//reset all user info
 		vm.user = {};
 		$location.path('/login');
 	};
+})
+
+.controller('homeCtrl', function(){
+	var vm = this;
+	vm.message = 'HELLO';
 });
+
+
+
+
+
