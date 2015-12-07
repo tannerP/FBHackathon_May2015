@@ -1,5 +1,5 @@
 ##About
-This codebase is a template for Webapp that need access control. 
+This codebase is a template for Web app that need access control. 
 It has 3 features:
     - Registeer
     - Edit
