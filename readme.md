@@ -1,9 +1,9 @@
 ##About
 This codebase is a template for Web app that need access control. 
 It has 3 features:
-    - Registeer
-    - Edit
-    - Delete
+    - Register new users
+    - Edit users
+    - Delete users
 
 ##To run this application on your computer
 ##Mac
