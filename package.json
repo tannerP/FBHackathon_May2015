@@ -1,7 +1,7 @@
 {
-  "name": "MEAN Stack Simple",
+  "name": "meanStack",
   "version": "1.0.0",
-  "description": "",
+  "description": "sample mean stack",
   "main": "server.js",
   "dependencies": {
     "accepts": "^1.1.4",

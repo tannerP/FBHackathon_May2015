@@ -58,7 +58,7 @@ apiRouter.post('/authenticate',function(req, res){
 
 //=================================  /register  =============================
 	apiRouter.route('/register')
-	//create a user (accessed at POST http://localhost:8080/api/users)
+	//create a user (accessed at POST http://localhost:8080/api/register)
 	.post(function(req,res) {
 			//create a new instance of the User model
 			var user = new User();

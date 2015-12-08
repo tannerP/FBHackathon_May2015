@@ -1,7 +1,7 @@
 //server.js
 //===========================--BASE SETUP--====================
 //LOAD PACKAGES-------------------------------
-var jwt = require('jsonwebtoken');//TOKEN Package
+//var jwt = require('jsonwebtoken');//TOKEN Package
 var express = require ('express'); //EXPRESS Package
 var app = express();	//define our app using express
 var bodyParser = require('body-parser');// get body-parser
@@ -34,12 +34,12 @@ app.use(function(req,res,next){
 //===========================--DB--============================
 // connect to our databse(hosted on modules.io)
 //mongoose.connect(config.database); 
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/local');
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
-  // yay!
+  console.log('MONGO: successfully connected to db');
 });
 /*var MongoClient = mongodb.MongoClient, format =require('util').format;
 
