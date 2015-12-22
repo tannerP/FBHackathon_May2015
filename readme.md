@@ -1,9 +1,5 @@
 ##About
-This codebase is a template for Web app that need access control. 
-It has 3 features:
-    - Register new users
-    - Edit users
-    - Delete users
+This codebase is created during Facebook Hackathon 2015 
 
 ##To run this application on your computer
 ##Mac
